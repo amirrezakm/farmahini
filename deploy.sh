@@ -36,6 +36,10 @@ if [[ $EUID -eq 0 ]]; then
        useradd -m -s /bin/bash deploy
        usermod -aG sudo deploy
        
+       # Configure passwordless sudo for deploy user
+       echo "deploy ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/deploy
+       chmod 440 /etc/sudoers.d/deploy
+       
        # Set up SSH key copying if available
        if [[ -d "/root/.ssh" ]]; then
            mkdir -p /home/deploy/.ssh
@@ -46,6 +50,11 @@ if [[ $EUID -eq 0 ]]; then
        fi
        
        log "User 'deploy' created successfully"
+   else
+       log "User 'deploy' already exists, ensuring sudo configuration..."
+       # Ensure deploy user has passwordless sudo even if user already exists
+       echo "deploy ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/deploy
+       chmod 440 /etc/sudoers.d/deploy
    fi
    
    # Copy script to deploy user's home and run it
