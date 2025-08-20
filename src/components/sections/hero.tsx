@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { HeartbeatLine, FloatingHearts, AnimatedHeart } from '../ui/heartbeat-line';
+import { HeartbeatLine } from '../ui/heartbeat-line';
 
 export function HeroSection() {
   const t = useTranslations();
@@ -34,49 +34,23 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient with Heart Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-red-50/30"></div>
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50/30"></div>
       
-      {/* Floating Hearts Animation */}
-      <FloatingHearts />
+
       
-      {/* Central Animated Heart */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
-        className="absolute top-20 right-10 lg:top-32 lg:right-20 z-10"
-      >
-        <AnimatedHeart size={80} />
-      </motion.div>
+
       
-      {/* Additional floating hearts around the section */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 1.5, ease: 'easeOut' }}
-        className="absolute top-40 left-10 lg:top-60 lg:left-20 z-5"
-      >
-        <AnimatedHeart size={40} color="#f87171" />
-      </motion.div>
-      
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.5, duration: 1.5, ease: 'easeOut' }}
-        className="absolute bottom-40 right-20 lg:bottom-60 lg:right-40 z-5"
-      >
-        <AnimatedHeart size={35} color="#fb7185" />
-      </motion.div>
+
       
       {/* Heartbeat Line - Top */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 2, ease: 'easeOut' }}
-        className="absolute top-0 left-0 w-full h-32 z-0"
+        className="absolute top-16 lg:top-20 left-0 w-full h-32 z-0"
       >
-        <HeartbeatLine className="w-full h-full" color="#ef4444" strokeWidth={1.5} />
+        <HeartbeatLine className="w-full h-full" color="#ef4444" lineColor="#ef4444" strokeWidth={1.5} />
       </motion.div>
       
       {/* Heartbeat Line - Bottom */}
@@ -86,7 +60,7 @@ export function HeroSection() {
         transition={{ delay: 1.5, duration: 2, ease: 'easeOut' }}
         className="absolute bottom-0 left-0 w-full h-32 z-0 rotate-180"
       >
-        <HeartbeatLine className="w-full h-full" color="#3b82f6" strokeWidth={1.5} />
+        <HeartbeatLine className="w-full h-full" color="#ef4444" lineColor="#3b82f6" strokeWidth={1.5} />
       </motion.div>
       
       {/* Floating Medical Icons with Heart Theme */}
@@ -121,12 +95,12 @@ export function HeroSection() {
               ease: "easeInOut"
             }}
           >
-            <Icon className={`w-16 h-16 ${index === 0 ? 'text-red-300 heart-pulse-slow' : 'text-blue-300'}`} />
+            <Icon className={`w-16 h-16 text-blue-300`} />
           </motion.div>
         </motion.div>
       ))}
 
-      {/* Animated Background Shapes with Heart Glow */}
+      {/* Animated Background Shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -137,7 +111,7 @@ export function HeroSection() {
             repeat: Infinity,
             ease: 'linear'
           }}
-          className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-red-200/20 to-transparent rounded-full blur-3xl heart-glow"
+          className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -151,7 +125,7 @@ export function HeroSection() {
           className="absolute -bottom-32 -left-32 w-64 h-64 bg-gradient-to-tr from-blue-200/30 to-transparent rounded-full blur-3xl"
         />
         
-        {/* Multiple heart-shaped glow effects */}
+        {/* Subtle glow effects */}
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
@@ -162,7 +136,7 @@ export function HeroSection() {
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-red-300/20 to-pink-300/20 rounded-full blur-2xl"
+          className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-300/20 to-cyan-300/20 rounded-full blur-2xl"
         />
         
         <motion.div
@@ -177,7 +151,7 @@ export function HeroSection() {
             ease: 'easeInOut',
             delay: 2
           }}
-          className="absolute top-3/4 right-1/3 w-24 h-24 bg-gradient-to-br from-pink-300/15 to-red-300/15 rounded-full blur-xl"
+          className="absolute top-3/4 right-1/3 w-24 h-24 bg-gradient-to-br from-cyan-300/15 to-blue-300/15 rounded-full blur-xl"
         />
         
         <motion.div
@@ -192,7 +166,7 @@ export function HeroSection() {
             ease: 'easeInOut',
             delay: 4
           }}
-          className="absolute bottom-1/3 left-1/2 w-40 h-40 bg-gradient-to-br from-red-200/15 to-pink-200/15 rounded-full blur-2xl"
+          className="absolute bottom-1/3 left-1/2 w-40 h-40 bg-gradient-to-br from-blue-200/15 to-cyan-200/15 rounded-full blur-2xl"
         />
       </div>
 
@@ -283,8 +257,8 @@ export function HeroSection() {
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             <div className="flex flex-col items-center p-6 bg-white/60 backdrop-blur-md rounded-xl shadow-lg">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 heart-glow">
-                <HeartIcon className="w-6 h-6 text-red-600 pulse-heart" />
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <HeartIcon className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">{t('hero.trust_indicators.modern_diagnostics')}</h3>
               <p className="text-sm text-gray-600 text-center">
@@ -303,8 +277,8 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col items-center p-6 bg-white/60 backdrop-blur-md rounded-xl shadow-lg">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <UserGroupIcon className="w-6 h-6 text-red-500" />
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <UserGroupIcon className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">{t('hero.trust_indicators.personal_care')}</h3>
               <p className="text-sm text-gray-600 text-center">
@@ -341,7 +315,7 @@ export function HeroSection() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center hover:border-red-300 transition-colors duration-300"
+            className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center hover:border-blue-300 transition-colors duration-300"
           >
             <motion.div
               animate={{ y: [0, 12, 0] }}
@@ -350,7 +324,7 @@ export function HeroSection() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-1 h-3 bg-gradient-to-b from-red-400 to-gray-400 rounded-full mt-2"
+              className="w-1 h-3 bg-gradient-to-b from-blue-400 to-gray-400 rounded-full mt-2"
             />
           </motion.div>
         </div>

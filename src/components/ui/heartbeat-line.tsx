@@ -5,58 +5,85 @@ import { motion } from 'framer-motion';
 interface HeartbeatLineProps {
   className?: string;
   color?: string;
+  lineColor?: string;
   strokeWidth?: number;
 }
 
 export function HeartbeatLine({ 
   className = "", 
   color = "#ef4444",
+  lineColor,
   strokeWidth = 3 
 }: HeartbeatLineProps) {
-  // Smooth continuous ECG with curved heartbeat variations
-  const createSmoothECGPath = () => {
+  // Use lineColor for the ECG line, color for the grid background
+  const actualLineColor = lineColor || color;
+  // Realistic ECG pattern with P-QRS-T waves
+  const createRealisticECGPath = () => {
     const path = ['M0,50']; // Start from left at baseline
     let currentX = 0;
     const totalWidth = 1600;
+    const baseline = 50;
     
     while (currentX < totalWidth) {
-      // Random spacing between heartbeats (50-120px)
-      const spacing = Math.random() * 70 + 50;
+      // Realistic spacing between heartbeats (80-120px for normal heart rate)
+      const spacing = Math.random() * 40 + 80;
       
-      // Smooth flat line before heartbeat
+      // Flat baseline before heartbeat
       currentX += spacing;
       if (currentX > totalWidth) break;
-      path.push(`L${currentX},50`);
+      path.push(`L${currentX},${baseline}`);
       
-      // Random heartbeat height and shape
-      const peakHeight = Math.random() * 35 + 20; // Random height between 20-55
-      const beatWidth = Math.random() * 25 + 20; // Random width between 20-45
-      const dipDepth = peakHeight * 0.4; // Proportional dip depth
+      // P wave (small upward deflection)
+      const pWaveStart = currentX;
+      const pWaveWidth = 8;
+      const pWaveHeight = 3;
+      path.push(`Q${pWaveStart + pWaveWidth/2},${baseline - pWaveHeight} ${pWaveStart + pWaveWidth},${baseline}`);
+      currentX += pWaveWidth;
       
-      // Smooth curved heartbeat using quadratic curves
-      const x1 = currentX + beatWidth * 0.2;
-      const x2 = currentX + beatWidth * 0.4;
-      const x3 = currentX + beatWidth * 0.6;
-      const x4 = currentX + beatWidth * 0.8;
-      const x5 = currentX + beatWidth;
+      // PR segment (flat)
+      const prSegment = 12;
+      currentX += prSegment;
+      path.push(`L${currentX},${baseline}`);
       
-      // Smooth approach with curve
-      path.push(`Q${x1},48 ${x2},50`);
+      // QRS Complex (main spike)
+      const qrsStart = currentX;
+      const qrsWidth = 16;
+      const qHeight = 8; // Small Q wave
+      const rHeight = 35 + Math.random() * 15; // Main R wave
+      const sHeight = 12; // S wave
       
-      // Smooth upward curve to peak
-      path.push(`Q${currentX + beatWidth * 0.45},${50 - peakHeight * 0.7} ${currentX + beatWidth * 0.5},${50 - peakHeight}`);
+      // Q wave (small downward)
+      path.push(`L${qrsStart + 3},${baseline + qHeight}`);
       
-      // Smooth downward curve to dip
-      path.push(`Q${currentX + beatWidth * 0.55},${50 + dipDepth * 0.8} ${x3},${50 + dipDepth}`);
+      // R wave (sharp upward spike)
+      path.push(`L${qrsStart + qrsWidth * 0.4},${baseline - rHeight}`);
       
-      // Smooth return to baseline
-      path.push(`Q${x4},48 ${x5},50`);
+      // S wave (downward after R)
+      path.push(`L${qrsStart + qrsWidth * 0.7},${baseline + sHeight}`);
       
-      currentX += beatWidth;
+      // Return to baseline
+      path.push(`L${qrsStart + qrsWidth},${baseline}`);
+      currentX += qrsWidth;
+      
+      // ST segment (flat)
+      const stSegment = 15;
+      currentX += stSegment;
+      path.push(`L${currentX},${baseline}`);
+      
+      // T wave (rounded upward deflection)
+      const tWaveStart = currentX;
+      const tWaveWidth = 25;
+      const tWaveHeight = 12 + Math.random() * 8;
+      path.push(`Q${tWaveStart + tWaveWidth/3},${baseline - tWaveHeight * 0.7} ${tWaveStart + tWaveWidth/2},${baseline - tWaveHeight}`);
+      path.push(`Q${tWaveStart + tWaveWidth * 2/3},${baseline - tWaveHeight * 0.7} ${tWaveStart + tWaveWidth},${baseline}`);
+      currentX += tWaveWidth;
+      
+      // Small pause after T wave
+      currentX += 10;
     }
     
-    // Smooth end at right edge
-    path.push(`L${totalWidth},50`);
+    // End at right edge
+    path.push(`L${totalWidth},${baseline}`);
     return path.join(' ');
   };
   
@@ -69,19 +96,40 @@ export function HeartbeatLine({
         className="absolute inset-0"
         preserveAspectRatio="none"
       >
-        {/* Very subtle grid background */}
+        {/* Realistic ECG Grid Background */}
         <defs>
-          <pattern id={`ecg-grid-${color.replace('#', '')}`} width="25" height="25" patternUnits="userSpaceOnUse">
-            <path d="M 25 0 L 0 0 0 25" fill="none" stroke={color} strokeWidth="0.2" opacity="0.05"/>
+          {/* Major grid lines (every 5 small squares) */}
+          <pattern id={`ecg-major-grid-${color.replace('#', '')}`} width="100" height="100" patternUnits="userSpaceOnUse">
+            <path d="M 100 0 L 0 0 0 100" fill="none" stroke={color} strokeWidth="1.2" opacity="0.35"/>
           </pattern>
+          
+          {/* Minor grid lines (small squares) */}
+          <pattern id={`ecg-minor-grid-${color.replace('#', '')}`} width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke={color} strokeWidth="0.5" opacity="0.18"/>
+          </pattern>
+          
+          {/* ECG paper background */}
+          <linearGradient id={`ecg-paper-${color.replace('#', '')}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{stopColor: '#fef7f7', stopOpacity: 0.5}} />
+            <stop offset="50%" style={{stopColor: '#ffffff', stopOpacity: 0.3}} />
+            <stop offset="100%" style={{stopColor: '#f0f9ff', stopOpacity: 0.4}} />
+          </linearGradient>
         </defs>
-        <rect width="100%" height="100%" fill={`url(#ecg-grid-${color.replace('#', '')})`} />
         
-        {/* Simple continuous ECG line - flows from left to right */}
+        {/* Paper background */}
+        <rect width="100%" height="100%" fill={`url(#ecg-paper-${color.replace('#', '')})`} />
+        
+        {/* Minor grid */}
+        <rect width="100%" height="100%" fill={`url(#ecg-minor-grid-${color.replace('#', '')})`} />
+        
+        {/* Major grid */}
+        <rect width="100%" height="100%" fill={`url(#ecg-major-grid-${color.replace('#', '')})`} />
+        
+        {/* Realistic ECG line with medical accuracy */}
         <motion.path
-          d={createSmoothECGPath()}
-          stroke={color}
-          strokeWidth={strokeWidth * 0.8}
+          d={createRealisticECGPath()}
+          stroke={actualLineColor}
+          strokeWidth={strokeWidth * 0.9}
           fill="none"
           strokeDasharray="3200"
           strokeDashoffset="3200"
@@ -89,12 +137,14 @@ export function HeartbeatLine({
             strokeDashoffset: [3200, -3200]
           }}
           transition={{
-            duration: 25,
+            duration: 30,
             repeat: Infinity,
             ease: "linear"
           }}
           style={{
-            filter: `drop-shadow(0 0 6px ${color}40)`,
+            filter: `drop-shadow(0 0 4px ${actualLineColor}30)`,
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round'
           }}
         />
       </svg>
