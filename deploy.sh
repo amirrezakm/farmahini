@@ -184,13 +184,75 @@ else
     error "package.json not found in current directory. Please run this script from your project root."
 fi
 
-# Install dependencies
-log "📦 Installing project dependencies..."
-npm ci
+# Check and configure swap if needed
+log "🔧 Checking system memory and swap..."
+TOTAL_MEM=$(free -m | awk 'NR==2{printf "%.0f", $2}')
+SWAP_SIZE=$(free -m | awk 'NR==3{printf "%.0f", $2}')
 
-# Build the project
+if [[ $TOTAL_MEM -lt 2048 && $SWAP_SIZE -lt 1024 ]]; then
+    log "⚠️ Low memory detected ($TOTAL_MEM MB). Creating swap file..."
+    
+    # Create 2GB swap file if it doesn't exist
+    if [[ ! -f /swapfile ]]; then
+        sudo fallocate -l 2G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        
+        # Make swap permanent
+        if ! grep -q '/swapfile' /etc/fstab; then
+            echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+        fi
+        
+        log "✅ Swap file created and activated"
+    else
+        log "✅ Swap file already exists"
+        sudo swapon /swapfile 2>/dev/null || true
+    fi
+fi
+
+# Install dependencies with memory optimization
+log "📦 Installing project dependencies..."
+# Set npm cache to use less memory and increase timeout
+npm config set fund false
+npm config set audit false
+export NODE_OPTIONS="--max-old-space-size=1024"
+
+# Try npm ci with retries in case of memory issues
+for i in {1..3}; do
+    log "Attempt $i/3: Installing dependencies..."
+    if npm ci --prefer-offline --no-audit --no-fund; then
+        log "✅ Dependencies installed successfully"
+        break
+    else
+        if [[ $i -eq 3 ]]; then
+            error "❌ Failed to install dependencies after 3 attempts"
+        fi
+        log "⚠️ Attempt $i failed, retrying in 10 seconds..."
+        sleep 10
+    fi
+done
+
+# Build the project with memory optimization
 log "🏗️ Building Next.js application..."
-npm run build
+export NODE_OPTIONS="--max-old-space-size=1536"
+
+# Try build with retries in case of memory issues
+for i in {1..2}; do
+    log "Build attempt $i/2..."
+    if npm run build; then
+        log "✅ Build completed successfully"
+        break
+    else
+        if [[ $i -eq 2 ]]; then
+            error "❌ Build failed after 2 attempts"
+        fi
+        log "⚠️ Build attempt $i failed, clearing cache and retrying..."
+        npm cache clean --force
+        rm -rf .next
+        sleep 5
+    fi
+done
 
 # Create PM2 ecosystem file
 log "⚙️ Creating PM2 configuration..."
