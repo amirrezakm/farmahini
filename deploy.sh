@@ -5,6 +5,16 @@
 
 set -e  # Exit on any error
 
+# Function to run commands that shouldn't stop deployment
+run_safe() {
+    if "$@"; then
+        return 0
+    else
+        warn "Command failed but continuing: $*"
+        return 1
+    fi
+}
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -288,7 +298,17 @@ sudo chown -R $USER:$USER /var/log/pm2
 log "🚀 Starting application with PM2..."
 pm2 start ecosystem.config.js
 pm2 save
-pm2 startup
+
+# Set up PM2 startup (handle the startup command automatically)
+log "⚙️ Setting up PM2 auto-startup..."
+STARTUP_CMD=$(pm2 startup systemd -u $USER --hp $HOME | grep "sudo env")
+if [[ -n "$STARTUP_CMD" ]]; then
+    log "Executing PM2 startup command..."
+    eval "$STARTUP_CMD"
+    log "✅ PM2 startup configured successfully"
+else
+    warn "Could not configure PM2 startup automatically"
+fi
 
 # Configure Nginx
 log "🌐 Configuring Nginx..."
@@ -378,7 +398,14 @@ fi
 
 # Obtain SSL certificate
 log "🔒 Obtaining SSL certificate from Let's Encrypt..."
-sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL --redirect
+set +e  # Don't exit on SSL error
+if sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL --redirect; then
+    log "✅ SSL certificate obtained successfully"
+else
+    warn "⚠️ SSL certificate setup failed. This is normal if DNS isn't propagated yet."
+    warn "You can run it manually later: sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN"
+fi
+set -e  # Re-enable exit on error
 
 # Set up automatic certificate renewal
 log "🔄 Setting up automatic SSL certificate renewal..."
