@@ -115,7 +115,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Install essential packages
 log "🔧 Installing essential packages..."
-sudo apt install -y curl wget git unzip software-properties-common apt-transport-https ca-certificates gnupg lsb-release
+sudo apt install -y curl wget git unzip rsync software-properties-common apt-transport-https ca-certificates gnupg lsb-release
 
 # Install Node.js (Latest LTS)
 log "📦 Installing Node.js..."
@@ -160,7 +160,25 @@ sudo chown -R $USER:$USER $APP_DIR
 log "📥 Setting up project files..."
 if [[ -f "package.json" ]]; then
     log "Copying project files from current directory..."
-    cp -r . $APP_DIR/
+    
+    # Create a temporary exclusion list for rsync
+    cat > /tmp/rsync_exclude << 'EOF'
+.git/
+node_modules/
+.next/
+.env.local
+.env.*.local
+*.log
+.DS_Store
+Thumbs.db
+EOF
+    
+    # Use rsync to copy files excluding unnecessary directories
+    rsync -av --exclude-from=/tmp/rsync_exclude . $APP_DIR/
+    
+    # Clean up temporary file
+    rm -f /tmp/rsync_exclude
+    
     cd $APP_DIR
 else
     error "package.json not found in current directory. Please run this script from your project root."
