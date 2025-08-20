@@ -1,29 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   PhoneIcon,
   EnvelopeIcon,
-  MapPinIcon,
-  ExclamationTriangleIcon
+  MapPinIcon
 } from '@heroicons/react/24/outline';
-import { translations } from '@/lib/translations';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export function ContactSection() {
-  const t = translations;
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Nachricht erfolgreich gesendet! Wir melden uns zeitnah bei Ihnen.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
+  const t = useTranslations();
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -36,93 +24,102 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            {t.contact.title}
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t.contact.subtitle}
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="order-2 lg:order-1"
           >
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Kontaktinformationen</h3>
-              <div className="space-y-4">
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">Kontaktinformationen</h3>
+              <div className="space-y-8">
                 <div className="flex items-center">
-                  <PhoneIcon className="w-5 h-5 text-blue-600 mr-3" />
-                  <span>+49 6232 123456</span>
+                  <div className="flex-shrink-0">
+                    <PhoneIcon className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <div className="ml-6">
+                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Telefon</p>
+                    <p className="text-xl font-semibold text-gray-900">+49 0623236691</p>
+                  </div>
                 </div>
                 <div className="flex items-center">
-                  <EnvelopeIcon className="w-5 h-5 text-green-600 mr-3" />
-                  <span>praxis@farmahini-kardiologie.de</span>
+                  <div className="flex-shrink-0">
+                    <EnvelopeIcon className="w-8 h-8 text-green-600" />
+                  </div>
+                  <div className="ml-6">
+                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">E-Mail</p>
+                    <p className="text-xl font-semibold text-gray-900">info@faramahini.de</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <MapPinIcon className="w-5 h-5 text-purple-600 mr-3" />
-                  <span>Maximilianstraße 42, 67346 Speyer</span>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <MapPinIcon className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <div className="ml-6">
+                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Adresse</p>
+                    <p className="text-xl font-semibold text-gray-900">Iggelheimer Straße 26<br />67346 Speyer</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-              <div className="flex items-start">
-                <ExclamationTriangleIcon className="w-6 h-6 text-red-600 mr-3 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-red-800 mb-2">Notfälle</h3>
-                  <p className="text-red-700 text-sm">
-                    Bei akuten Herznotfällen wählen Sie bitte sofort den Notruf{' '}
-                    <a href="tel:112" className="font-bold underline">112</a>
-                  </p>
+              
+              {/* CTA Buttons */}
+              <div className="mt-8 space-y-4">
+                <div className="text-center">
+                  <a
+                    href="https://www.doctolib.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    Termin buchen mit Doctolib
+                  </a>
+                </div>
+                <div className="text-center">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center px-4 py-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                  >
+                    Vollständige Kontaktinformationen
+                  </Link>
                 </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Medical Center Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="order-1 lg:order-2"
           >
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Termin anfragen</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input
-                type="text"
-                placeholder="Name"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="email"
-                placeholder="E-Mail"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              />
-              <textarea
-                placeholder="Nachricht"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Nachricht senden
-              </button>
-            </form>
+            <div className="relative">
+              <div className="aspect-[4/3] relative overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                  src="/center.webp"
+                  alt="Kardiologische Schwerpunktpraxis Speyer - Praxisräume"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-60 -z-10"></div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full opacity-40 -z-10"></div>
+            </div>
           </motion.div>
         </div>
       </div>

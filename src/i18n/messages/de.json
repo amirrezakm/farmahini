@@ -1,0 +1,247 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "services": "Leistungen",
+    "team": "Team",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "appointments": "Termine"
+  },
+  "hero": {
+    "title": "Kardiologische Schwerpunktpraxis",
+    "subtitle": "Faraz Farmahini",
+    "description": "Mein Ziel ist Ihre individuelle körperliche und geistige Selbstbestimmung in jedem Alter und kurzum Ihre langfristige Gesundheit. Dies gilt für Menschen mit Herz-Kreislauf-Erkrankungen ebenso wie für alle Menschen, die aktiv gesund bleiben möchten.",
+    "cta_doctolib": "Termin buchen mit Doctolib",
+
+    "trust_indicators": {
+      "modern_diagnostics": "Modernste Diagnostik",
+      "modern_diagnostics_desc": "Hochmoderne Geräte für präzise Herzuntersuchungen",
+      "experienced_care": "Erfahrene Betreuung",
+      "experienced_care_desc": "Langjährige Expertise in der Kardiologie",
+      "personal_care": "Persönliche Betreuung",
+      "personal_care_desc": "Individuelle Behandlung für jeden Patienten"
+    },
+    "scroll_down": "Nach unten scrollen"
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Umfassende kardiologische Diagnostik und Therapie",
+    "ekg": {
+      "title": "EKG",
+      "description": "Elektrokardiogramm zur Messung der Herzaktivität",
+      "detailed_description": "Das EKG ist eine einfache und schmerzlose Untersuchung, bei der die elektrische Aktivität des Herzens gemessen wird. Es werden Elektroden an bestimmten Stellen des Körpers angebracht, um die elektrischen Signale des Herzens aufzuzeichnen. Dadurch können Abnormalitäten im Herzrhythmus festgestellt und Erkrankungen wie Arrhythmien oder Herzinfarkte diagnostiziert werden.",
+      "feature_1": "Schmerzlose und schnelle Untersuchung",
+      "feature_2": "Erkennung von Herzrhythmusstörungen",
+      "feature_3": "Früherkennung von Herzinfarkten"
+    },
+    "echo": {
+      "title": "Echokardiographie",
+      "description": "Herzultraschall zur detaillierten Untersuchung der Herzstruktur",
+      "detailed_description": "Die Echokardiographie ist eine Ultraschalluntersuchung des Herzens, bei der detaillierte Bilder von seiner Struktur und Funktion erstellt werden. Der Arzt oder die Ärztin verwendet einen Schallkopf, der Schallwellen aussendet und die zurückkehrenden Schallwellen aufzeichnet. Dadurch können Informationen über die Pumpfähigkeit des Herzens, den Zustand der Herzklappen und Anomalien oder Anzeichen von Herzerkrankungen gewonnen werden.",
+      "feature_1": "Detaillierte Bilder der Herzstruktur",
+      "feature_2": "Beurteilung der Pumpfähigkeit",
+      "feature_3": "Kontrolle der Herzklappenfunktion"
+    },
+    "holter": {
+      "title": "24-Stunden-Holter-EKG",
+      "description": "24-Stunden-EKG-Aufzeichnung zur Rhythmusanalyse",
+      "detailed_description": "Bei dieser Untersuchung trägt der Patient oder die Patientin ein tragbares Gerät, das über einen Zeitraum von 24 bis 48 Stunden kontinuierlich das EKG aufzeichnet. Dadurch können unregelmäßige Herzrhythmen erfasst werden, die möglicherweise bei einem normalen EKG nicht festgestellt werden können.",
+      "feature_1": "Kontinuierliche 24-48h Überwachung",
+      "feature_2": "Erkennung seltener Rhythmusstörungen",
+      "feature_3": "Ambulante Durchführung im Alltag"
+    },
+    "abpm": {
+      "title": "24-Stunden-Holter-Blutdruckmessung",
+      "description": "24-Stunden-Blutdruckmonitoring",
+      "detailed_description": "Bei dieser Untersuchung trägt der Patient oder die Patientin ebenfalls ein tragbares Gerät, das den Blutdruck in regelmäßigen Abständen über einen Zeitraum von 24 Stunden misst. Dadurch kann eine umfassendere Beurteilung der Blutdruckmuster im Verlauf eines Tages und einer Nacht erfolgen.",
+      "feature_1": "24-Stunden kontinuierliche Messung",
+      "feature_2": "Tag- und Nachtrhythmus erfassen",
+      "feature_3": "Präzise Blutdruckdiagnostik"
+    },
+    "ergometry": {
+      "title": "Belastungs-EKG",
+      "description": "Herzuntersuchung unter körperlicher Belastung",
+      "detailed_description": "Bei einem Belastungs-EKG wird die Reaktion des Herzens auf körperliche Belastung gemessen. Der Patient oder die Patientin wird dazu auf einem Laufband gehen oder auf einem stationären Fahrrad fahren, während das EKG durchgeführt wird. Diese Untersuchung ermöglicht es, die Leistungsfähigkeit des Herzens unter Belastung zu bewerten und die Durchblutung des Herzmuskels während der körperlichen Aktivität zu beurteilen.",
+      "feature_1": "Herzleistung unter Belastung testen",
+      "feature_2": "Durchblutungsstörungen erkennen",
+      "feature_3": "Belastbarkeit objektiv messen"
+    },
+    "lufo": {
+      "title": "Lungenfunktionstest",
+      "description": "Messung der Atemfunktion und Lungenkapazität",
+      "detailed_description": "Der Lungenfunktionstest misst die Atemfunktion und Lungenkapazität. Diese Untersuchung hilft bei der Diagnose von Atemwegserkrankungen und der Beurteilung der Lungenfunktion in Zusammenhang mit Herzerkrankungen.",
+      "feature_1": "Messung der Lungenkapazität",
+      "feature_2": "Beurteilung der Atemfunktion",
+      "feature_3": "Diagnose von Atemwegserkrankungen"
+    },
+    "abi": {
+      "title": "Knöchel-Arm-Index",
+      "description": "Gefäßdiagnostik zur Erkennung von Durchblutungsstörungen",
+      "detailed_description": "Der Knöchel-Arm-Index ist eine einfache und nicht-invasive Untersuchung zur Beurteilung der Durchblutung in den Beinen. Dabei wird der Blutdruck an den Armen und Knöcheln gemessen und verglichen. Diese Untersuchung hilft bei der Früherkennung von peripheren arteriellen Verschlusskrankheiten.",
+      "feature_1": "Nicht-invasive Gefäßdiagnostik",
+      "feature_2": "Früherkennung von Durchblutungsstörungen",
+      "feature_3": "Schnelle und schmerzlose Messung"
+    },
+    "stress_echo": {
+      "title": "Belastungs-Echokardiographie",
+      "description": "Herzultraschall unter medikamentöser Belastung",
+      "detailed_description": "Die Belastungs-Echokardiographie kombiniert die Methode der Belastungs-EKGs mit der der Echokardiographie. Sie ermöglicht es, die Reaktion des Herzens auf Belastung zu beurteilen und festzustellen, ob bestimmte Bereiche des Herzmuskels ausreichend mit Blut versorgt werden. Diese Untersuchung kann helfen, mögliche Engstellen oder Veränderungen der Herzkranzgefäße zu identifizieren.",
+      "feature_1": "Kombination aus EKG und Ultraschall",
+      "feature_2": "Erkennung von Durchblutungsstörungen",
+      "feature_3": "Beurteilung der Herzmuskelversorgung"
+    },
+    "device_control": {
+      "title": "Schrittmacher- und ICD-Kontrolle",
+      "description": "Programmierung und Nachsorge von Herzschrittmachern",
+      "detailed_description": "Diese Leistung wird in enger Zusammenarbeit mit Krankenhäusern erbracht. Diese Prozedur besteht darin, ein kleines Gerät unter die Haut zu implantieren, das elektrische Impulse an das Herz sendet, um den normalen Herzrhythmus aufrechtzuerhalten. Es wird häufig zur Behandlung von langsamem Herzschlag oder bestimmten Arten von Herzblockaden eingesetzt. Nach operative Behandlungen wird regelmäßige Kontrolle und Nachsorge im ambulanten Bereich durchgeführt.",
+      "feature_1": "Regelmäßige Gerätekontrolle",
+      "feature_2": "Programmierung und Anpassung",
+      "feature_3": "Ambulante Nachsorge"
+    },
+    "cardio_mrt": {
+      "title": "Kardiale MRT (Magnetresonanztomographie)",
+      "description": "Kardiale Magnetresonanztomographie",
+      "detailed_description": "Die kardiale MRT ist eine nicht-invasive bildgebende Untersuchung, bei der starke Magnetfelder und Radiowellen verwendet werden, um detaillierte Bilder des Herzens zu erstellen. Dies ermöglicht es den Ärzten, die Struktur des Herzens, den Blutfluss und verschiedene Erkrankungen des Herzens zu beurteilen. Diese Leistung wird in enger Zusammenarbeit mit Krankenhäusern erbracht.",
+      "feature_1": "Hochauflösende Herzbilder",
+      "feature_2": "Nicht-invasive Untersuchung",
+      "feature_3": "Detaillierte Strukturanalyse"
+    },
+    "category": "Kardiologie",
+    "learn_more": "Mehr erfahren",
+    "equipment": {
+      "title": "Modernste Ausstattung für Ihre Gesundheit",
+      "description": "Unsere Praxis verfügt über die neueste medizinische Technologie und folgt den aktuellen Leitlinien der Deutschen Gesellschaft für Kardiologie. Alle Untersuchungen werden von erfahrenen Fachkräften durchgeführt.",
+      "quality": "Zertifizierte Qualität",
+      "patient_focused": "Patientenorientiert",
+      "modern_tech": "Modernste Technik"
+    },
+    "click_to_learn_more": "Klicken Sie für mehr Informationen",
+    "back_to_home": "Zurück zur Startseite",
+    "page_description": "Detaillierte Informationen zu allen unseren kardiologischen Leistungen und Untersuchungsmethoden.",
+    "features_title": "Wichtige Merkmale",
+    "cta_title": "Benötigen Sie eine Untersuchung?",
+    "cta_description": "Vereinbaren Sie einen Termin für eine professionelle kardiologische Untersuchung.",
+    "cta_button": "Termin vereinbaren"
+  },
+  "team": {
+    "title": "Unser Team",
+    "subtitle": "Erfahrene Fachkräfte für Ihre Herzgesundheit",
+    "dr_farmahini": {
+      "name": "Dr. Faraz Farmahini",
+      "role": "Facharzt für Kardiologie",
+      "description": "Praxisinhaber mit langjähriger Erfahrung in der interventionellen Kardiologie"
+    },
+    "yeliz_guenes": {
+      "name": "Yeliz Günes",
+      "role": "Medizinische Fachangestellte",
+      "description": "Koordination und Patientenbetreuung"
+    },
+    "aaliyah_eichberger": {
+      "name": "Aaliyah Eichberger",
+      "role": "Medizinische Fachangestellte",
+      "description": "Diagnostik und Patientenservice"
+    }
+  },
+  "contact": {
+    "title": "Kontakt & Termine",
+    "subtitle": "Vereinbaren Sie einen Termin oder kontaktieren Sie uns",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "hours": "Sprechzeiten",
+    "emergency": "Notfälle",
+    "form": {
+      "title": "Termin anfragen",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "submit": "Nachricht senden",
+      "required": "Pflichtfeld"
+    },
+    "page": {
+      "title": "Kontakt & Termine",
+      "subtitle": "Wir freuen uns auf Ihren Besuch",
+      "description": "Vereinbaren Sie einen Termin in unserer modernen kardiologischen Praxis in Speyer. Unser erfahrenes Team steht Ihnen gerne zur Verfügung.",
+      "practice_info": {
+        "title": "Praxisinformationen",
+        "address_full": "Iggelheimer Straße 26\n67346 Speyer\nDeutschland",
+        "phone_full": "+49 (0) 6232 36691",
+        "email_full": "info@farmahini.de",
+        "website": "www.farmahini.de"
+      },
+      "opening_hours": {
+        "title": "Öffnungszeiten",
+        "monday": "Montag: 08:00 - 17:00",
+        "tuesday": "Dienstag: 08:00 - 17:00", 
+        "wednesday": "Mittwoch: 08:00 - 13:00",
+        "thursday": "Donnerstag: 08:00 - 17:00",
+        "friday": "Freitag: 08:00 - 13:00",
+        "weekend": "Wochenende: Geschlossen",
+        "note": "Termine nach Vereinbarung"
+      },
+      "emergency_info": {
+        "title": "Notfälle",
+        "description": "Bei akuten Notfällen wenden Sie sich bitte an:",
+        "emergency_number": "Notruf: 112",
+        "hospital": "Diakonissen-Stiftungs-Krankenhaus Speyer",
+        "hospital_phone": "+49 (0) 6232 22-0"
+      },
+      "appointment_booking": {
+        "title": "Terminbuchung",
+        "description": "Buchen Sie Ihren Termin bequem online über Doctolib oder rufen Sie uns direkt an.",
+        "doctolib_button": "Online Termin buchen",
+        "phone_button": "Telefonisch buchen"
+      },
+      "gallery": {
+        "title": "Unsere Praxis",
+        "description": "Lernen Sie unser Team und unsere modernen Praxisräume kennen"
+      },
+      "back_to_home": "Zurück zur Startseite"
+    }
+  },
+  "footer": {
+    "practice_name": "Kardiologische Schwerpunktpraxis",
+    "doctor_name": "Faraz Farmahini",
+    "privacy": "Datenschutz",
+    "imprint": "Impressum"
+  },
+  "personalDescription": {
+    "title": "Persönliche Beschreibung",
+    "subtitle": "Mein Weg zur Kardiologie",
+    "content": "Ich habe mein Medizinstudium an der Universität in Tehran erfolgreich abgeschlossen. Während meines Studiums habe ich eine herausragende Doktorarbeit verfasst, die meine Passion für die Kardiologie weiter entfachte. Nach einer kurzen Tätigkeit im Iran entschied ich mich, nach Deutschland auszuwandern, um meine Facharztausbildung in Kardiologie fortzusetzen. Meine Facharztausbildung absolvierte ich in renommierten Kliniken und unter der Anleitung hoch angesehener und bekannter Kardiologen in Deutschland.",
+    "highlights": {
+      "education": "Medizinstudium Tehran",
+      "educationDesc": "Erfolgreich abgeschlossen mit herausragender Doktorarbeit",
+      "specialization": "Facharztausbildung Deutschland",
+      "specializationDesc": "In renommierten Kliniken unter angesehenen Kardiologen"
+    },
+    "detailed_journey": {
+      "point1": "Ich habe mein Medizinstudium an der Universität in Tehran erfolgreich abgeschlossen.",
+      "point2": "Während meines Studiums habe ich eine herausragende Doktorarbeit verfasst, die meine Passion für die Kardiologie weiter entfachte.",
+      "point3": "Nach einer kurzen Tätigkeit im Iran entschied ich mich, nach Deutschland auszuwandern, um meine Facharztausbildung in Kardiologie fortzusetzen.",
+      "point4": "Meine Facharztausbildung absolvierte ich in renommierten Kliniken und unter der Anleitung hoch angesehener und bekannter Kardiologen in Deutschland.",
+      "point5": "Seit Januar 2018 arbeite ich als Facharzt in der Kardiologie und widme mich mit Hingabe meinen Patienten.",
+      "point6": "Während meiner Fachausbildung erlangte ich zusätzlich eine fundierte Ausbildung in der Bildgebung in der Kardiologie, einschließlich kardialer CT und kardialer MRT.",
+      "point7": "Ich führte eigenständig eine Vielzahl von Untersuchungen durch und erlangte die Zertifizierung der Deutschen Gesellschaft für Kardiologie für die Durchführung von kardialer MRT Untersuchungen.",
+      "point8": "Anschließend absolvierte ich eine spezialisierte Ausbildung im Bereich der invasiven Kardiologie und PTCA.",
+      "point9": "Als Oberarzt im Krankenhaus war ich für die Behandlung von Notfällen wie Herzinfarkten und schwerer Verkalkung der Herzkranzarterien verantwortlich.",
+      "point10": "Um mich weiteren Herausforderungen zu stellen, habe ich mich auf die Behandlung von Herzrhythmusstörungen spezialisiert.",
+      "point11": "Im Laufe der Jahre habe ich wertvolle Erfahrungen gesammelt und beherrsche nun die invasive Behandlung von Herzrhythmusstörungen (Ablationen) sowie die Implantation von Herzschrittmachern und ICD-Geräten."
+    },
+    "signature": {
+      "title": "Founder's Signature",
+      "name": "Dr. Med(IR). Faraz Farmahini"
+    },
+    "cta_button": "Mehr über mich erfahren",
+    "back_to_home": "Zurück zur Startseite",
+    "page_title": "Über Dr. Faraz Farmahini",
+    "page_description": "Erfahren Sie mehr über den Werdegang und die Qualifikationen von Dr. Faraz Farmahini, Facharzt für Kardiologie."
+  },
+  "language": {
+    "switch_to_german": "Deutsch",
+    "switch_to_english": "English",
+    "switch_to_persian": "فارسی",
+    "current_language": "Deutsch"
+  }
+}

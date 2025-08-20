@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -12,10 +11,9 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         poppins: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        persian: ['var(--font-vazirmatn)', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Include all default Tailwind colors
-        ...colors,
         // Custom colors for the medical practice
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,0 +1,120 @@
+{
+  "navigation": {
+    "home": "خانه",
+    "services": "خدمات",
+    "team": "تیم",
+    "about": "درباره ما",
+    "contact": "تماس",
+    "appointments": "نوبت‌دهی"
+  },
+  "hero": {
+    "title": "مطب تخصصی قلب اشپایر",
+    "subtitle": "فراز فرماهینی",
+    "description": "سلامت قلب شما برای ما اولویت است. تشخیص‌های پیشرفته و مراقبت دلسوزانه در مطب قلب ما در اشپایر.",
+    "cta_appointment": "رزرو نوبت",
+    "cta_contact": "تماس بگیرید",
+
+    "trust_indicators": {
+      "modern_diagnostics": "تشخیص مدرن",
+      "modern_diagnostics_desc": "تجهیزات پیشرفته برای معاینات دقیق قلب",
+      "experienced_care": "مراقبت با تجربه",
+      "experienced_care_desc": "سال‌ها تخصص در قلب و عروق",
+      "personal_care": "مراقبت شخصی",
+      "personal_care_desc": "درمان فردی برای هر بیمار"
+    },
+    "scroll_down": "پایین بروید"
+  },
+  "services": {
+    "title": "خدمات ما",
+    "subtitle": "تشخیص و درمان جامع قلب و عروق",
+    "ekg": {
+      "title": "نوار قلب",
+      "description": "الکتروکاردیوگرام برای اندازه‌گیری فعالیت قلب"
+    },
+    "echo": {
+      "title": "اکوکاردیوگرافی",
+      "description": "سونوگرافی قلب برای بررسی دقیق ساختار قلب"
+    },
+    "holter": {
+      "title": "نوار قلب ۲۴ ساعته",
+      "description": "ضبط نوار قلب ۲۴ ساعته برای تجزیه و تحلیل ریتم"
+    },
+    "abpm": {
+      "title": "مانیتورینگ فشار خون ۲۴ ساعته",
+      "description": "نظارت فشار خون ۲۴ ساعته"
+    },
+    "ergometry": {
+      "title": "نوار قلب ورزشی",
+      "description": "معاینه قلب تحت استرس فیزیکی"
+    },
+    "lufo": {
+      "title": "تست عملکرد ریه",
+      "description": "اندازه‌گیری عملکرد تنفسی و ظرفیت ریه"
+    },
+    "abi": {
+      "title": "شاخص مچ پا-بازو",
+      "description": "تشخیص عروقی برای تشخیص اختلالات گردش خون"
+    },
+    "stress_echo": {
+      "title": "اکوکاردیوگرافی استرس",
+      "description": "سونوگرافی قلب تحت استرس دارویی"
+    },
+    "device_control": {
+      "title": "کنترل پیس‌میکر و ICD",
+      "description": "برنامه‌ریزی و مراقبت پس از کاشت پیس‌میکر"
+    },
+    "cardio_mrt": {
+      "title": "MRI قلب",
+      "description": "تصویربرداری رزونانس مغناطیسی قلب"
+    }
+  },
+  "team": {
+    "title": "تیم ما",
+    "subtitle": "متخصصان با تجربه برای سلامت قلب شما",
+    "dr_farmahini": {
+      "name": "دکتر فراز فرماهینی",
+      "role": "متخصص قلب و عروق",
+      "description": "صاحب مطب با تجربه گسترده در قلب و عروق مداخله‌ای"
+    },
+    "yeliz_guenes": {
+      "name": "یلیز گونس",
+      "role": "دستیار پزشکی",
+      "description": "هماهنگی و مراقبت از بیماران"
+    },
+    "aaliyah_eichberger": {
+      "name": "آلیا آیشبرگر",
+      "role": "دستیار پزشکی",
+      "description": "تشخیص و خدمات بیماران"
+    }
+  },
+  "contact": {
+    "title": "تماس و نوبت‌دهی",
+    "subtitle": "نوبت بگیرید یا با ما تماس بگیرید",
+    "address": "آدرس",
+    "phone": "تلفن",
+    "email": "ایمیل",
+    "hours": "ساعات کاری",
+    "emergency": "اورژانس",
+    "form": {
+      "title": "درخواست نوبت",
+      "name": "نام",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "message": "پیام",
+      "submit": "ارسال پیام",
+      "required": "فیلد اجباری"
+    }
+  },
+  "footer": {
+    "practice_name": "مطب تخصصی قلب اشپایر",
+    "doctor_name": "فراز فرماهینی",
+    "privacy": "حریم خصوصی",
+    "imprint": "مشخصات"
+  },
+  "language": {
+    "switch_to_persian": "فارسی",
+    "switch_to_english": "English",
+    "current_language": "فارسی"
+  }
+}
+

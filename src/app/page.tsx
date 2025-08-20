@@ -1,19 +1,6 @@
-import { Header } from '@/components/navigation/header';
-import { HeroSection } from '@/components/sections/hero';
-import { ServicesSection } from '@/components/sections/services';
-import { TeamSection } from '@/components/sections/team';
-import { ContactSection } from '@/components/sections/contact';
-import { Footer } from '@/components/footer/footer';
+import { redirect } from 'next/navigation';
 
-export default function HomePage() {
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <HeroSection />
-      <ServicesSection />
-      <TeamSection />
-      <ContactSection />
-      <Footer />
-    </main>
-  );
+export default function RootPage() {
+  // Redirect to default locale (German)
+  redirect('/de');
 }

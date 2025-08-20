@@ -7,7 +7,7 @@ import {
   HeartIcon,
   StarIcon
 } from '@heroicons/react/24/outline';
-import { translations } from '@/lib/translations';
+import { useTranslations } from 'next-intl';
 
 const teamMembers = [
   {
@@ -49,7 +49,7 @@ const colorSchemes = {
 };
 
 export function TeamSection() {
-  const t = translations;
+  const t = useTranslations();
 
   return (
     <section id="team" className="py-20 bg-white">
@@ -63,10 +63,10 @@ export function TeamSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            {t.team.title}
+            {t('team.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t.team.subtitle}
+            {t('team.subtitle')}
           </p>
         </motion.div>
 
@@ -74,7 +74,11 @@ export function TeamSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => {
             const colors = colorSchemes[member.color as keyof typeof colorSchemes];
-            const memberData = t.team[member.key as keyof typeof t.team] as { name: string; role: string; description: string };
+            const memberData = {
+              name: t(`team.${member.key}.name`),
+              role: t(`team.${member.key}.role`),
+              description: t(`team.${member.key}.description`)
+            };
             
             return (
               <motion.div
@@ -149,42 +153,7 @@ export function TeamSection() {
           })}
         </div>
 
-        {/* Team Philosophy */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center max-w-4xl mx-auto"
-        >
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
-            <HeartIcon className="w-12 h-12 text-red-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Unser Versprechen an Sie
-            </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Jeder Patient steht bei uns im Mittelpunkt. Unser erfahrenes Team arbeitet 
-              Hand in Hand, um Ihnen die bestmögliche kardiologische Betreuung zu bieten. 
-              Mit modernster Technik, fundiertem Fachwissen und viel Einfühlungsvermögen 
-              sorgen wir für Ihre Herzgesundheit.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-                <div className="text-gray-600">Jahre Erfahrung</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">1000+</div>
-                <div className="text-gray-600">Zufriedene Patienten</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
-                <div className="text-gray-600">Notfall-Beratung</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

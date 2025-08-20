@@ -2,28 +2,30 @@
 
 import { motion } from 'framer-motion';
 import { 
-  HeartIcon,
   PhoneIcon,
   EnvelopeIcon,
-  MapPinIcon,
-  ExclamationTriangleIcon
+  MapPinIcon
 } from '@heroicons/react/24/outline';
-import { translations } from '@/lib/translations';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
-  const t = translations;
+  const t = useTranslations();
+  const locale = useLocale();
+
+  // Helper function to generate correct URLs for default locale
+  const getLocalizedHref = (path: string) => {
+    if (locale === 'de') {
+      // German is default, no prefix needed
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="bg-red-600 py-3">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center text-center">
-            <ExclamationTriangleIcon className="w-5 h-5 mr-2" />
-            <span className="font-medium">{t.footer.emergency_note}</span>
-          </div>
-        </div>
-      </div>
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -35,10 +37,16 @@ export function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center mb-4">
-              <HeartIcon className="w-8 h-8 text-red-500 mr-3 pulse-heart" />
+              <Image
+                src="/logo.png"
+                alt="Dr. Farmahini Kardiologie Logo"
+                width={80}
+                height={80}
+                className="w-20 h-20 object-contain mr-3"
+              />
               <div>
-                <h3 className="text-xl font-bold">{t.footer.practice_name}</h3>
-                <p className="text-gray-300">{t.footer.doctor_name}</p>
+                <h3 className="text-xl font-bold">{t('footer.practice_name')}</h3>
+                <p className="text-gray-300">{t('footer.doctor_name')}</p>
               </div>
             </div>
             
@@ -60,8 +68,8 @@ export function Footer() {
               </div>
               <div className="flex items-center text-gray-300">
                 <EnvelopeIcon className="w-4 h-4 mr-2 text-purple-400" />
-                <a href="mailto:praxis@farmahini-kardiologie.de" className="hover:text-white transition-colors">
-                  praxis@farmahini-kardiologie.de
+                <a href="mailto:info@farmahini.de" className="hover:text-white transition-colors">
+                  info@farmahini.de
                 </a>
               </div>
             </div>
@@ -75,10 +83,10 @@ export function Footer() {
           >
             <h4 className="text-lg font-semibold mb-4">Schnellzugriff</h4>
             <ul className="space-y-2">
-              <li><Link href="#services" className="text-gray-300 hover:text-white transition-colors">Unsere Leistungen</Link></li>
-              <li><Link href="#team" className="text-gray-300 hover:text-white transition-colors">Unser Team</Link></li>
-              <li><Link href="#contact" className="text-gray-300 hover:text-white transition-colors">Kontakt & Termine</Link></li>
-              <li><a href="tel:112" className="text-red-400 hover:text-red-300 transition-colors font-medium">Notfall: 112</a></li>
+              <li><Link href={getLocalizedHref('#services')} className="text-gray-300 hover:text-white transition-colors">{t('navigation.services')}</Link></li>
+              <li><Link href={getLocalizedHref('#team')} className="text-gray-300 hover:text-white transition-colors">{t('navigation.team')}</Link></li>
+              <li><Link href={getLocalizedHref('#contact')} className="text-gray-300 hover:text-white transition-colors">{t('navigation.contact')}</Link></li>
+
             </ul>
           </motion.div>
 
@@ -124,11 +132,11 @@ export function Footer() {
             </p>
             
             <div className="flex space-x-6 text-sm">
-              <Link href="/datenschutz" className="text-gray-400 hover:text-white transition-colors">
-                Datenschutz
+              <Link href={getLocalizedHref('/datenschutz')} className="text-gray-400 hover:text-white transition-colors">
+                {t('footer.privacy')}
               </Link>
-              <Link href="/impressum" className="text-gray-400 hover:text-white transition-colors">
-                Impressum
+              <Link href={getLocalizedHref('/impressum')} className="text-gray-400 hover:text-white transition-colors">
+                {t('footer.imprint')}
               </Link>
             </div>
           </div>

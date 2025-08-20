@@ -1,0 +1,120 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "team": "Team",
+    "about": "About",
+    "contact": "Contact",
+    "appointments": "Appointments"
+  },
+  "hero": {
+    "title": "Cardiology Practice Speyer",
+    "subtitle": "Faraz Farmahini",
+    "description": "Your heart health is our priority. State-of-the-art diagnostics and compassionate care in our cardiology practice in Speyer.",
+    "cta_appointment": "Book Appointment",
+    "cta_contact": "Get in Touch",
+
+    "trust_indicators": {
+      "modern_diagnostics": "Modern Diagnostics",
+      "modern_diagnostics_desc": "State-of-the-art equipment for precise cardiac examinations",
+      "experienced_care": "Experienced Care",
+      "experienced_care_desc": "Years of expertise in cardiology",
+      "personal_care": "Personal Care",
+      "personal_care_desc": "Individual treatment for every patient"
+    },
+    "scroll_down": "Scroll down"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive cardiac diagnostics and therapy",
+    "ekg": {
+      "title": "ECG",
+      "description": "Electrocardiogram for measuring heart activity"
+    },
+    "echo": {
+      "title": "Echocardiography",
+      "description": "Cardiac ultrasound for detailed examination of heart structure"
+    },
+    "holter": {
+      "title": "Holter ECG",
+      "description": "24-hour ECG recording for rhythm analysis"
+    },
+    "abpm": {
+      "title": "24-Hour Blood Pressure Monitoring",
+      "description": "24-hour blood pressure monitoring"
+    },
+    "ergometry": {
+      "title": "Exercise ECG",
+      "description": "Cardiac examination under physical stress"
+    },
+    "lufo": {
+      "title": "Pulmonary Function Test",
+      "description": "Measurement of respiratory function and lung capacity"
+    },
+    "abi": {
+      "title": "Ankle-Brachial Index",
+      "description": "Vascular diagnostics for detecting circulation disorders"
+    },
+    "stress_echo": {
+      "title": "Stress Echocardiography",
+      "description": "Cardiac ultrasound under pharmacological stress"
+    },
+    "device_control": {
+      "title": "Pacemaker and ICD Control",
+      "description": "Programming and follow-up care for pacemakers"
+    },
+    "cardio_mrt": {
+      "title": "Cardiac MRI",
+      "description": "Cardiac magnetic resonance imaging"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Experienced professionals for your heart health",
+    "dr_farmahini": {
+      "name": "Dr. Faraz Farmahini",
+      "role": "Specialist in Cardiology",
+      "description": "Practice owner with extensive experience in interventional cardiology"
+    },
+    "yeliz_guenes": {
+      "name": "Yeliz Günes",
+      "role": "Medical Assistant",
+      "description": "Coordination and patient care"
+    },
+    "aaliyah_eichberger": {
+      "name": "Aaliyah Eichberger",
+      "role": "Medical Assistant",
+      "description": "Diagnostics and patient service"
+    }
+  },
+  "contact": {
+    "title": "Contact & Appointments",
+    "subtitle": "Schedule an appointment or contact us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Office Hours",
+    "emergency": "Emergencies",
+    "form": {
+      "title": "Request Appointment",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "required": "Required field"
+    }
+  },
+  "footer": {
+    "practice_name": "Cardiology Practice Speyer",
+    "doctor_name": "Faraz Farmahini",
+    "privacy": "Privacy Policy",
+    "imprint": "Imprint"
+  },
+  "language": {
+    "switch_to_persian": "فارسی",
+    "switch_to_english": "English",
+    "current_language": "English"
+  }
+}
+

@@ -158,9 +158,9 @@ The website supports three languages with complete translations:
 ## 📞 Contact Information
 
 - **Phone**: +49 6232 123456
-- **Email**: praxis@farmahini-kardiologie.de
+- **Email**: info@farmahini.de
 - **Address**: Maximilianstraße 42, 67346 Speyer
-- **Emergency**: 112
+
 
 ## 🔧 Development Commands
 
@@ -181,13 +181,7 @@ npm run lint
 npm run type-check
 ```
 
-## 🚨 Emergency Features
 
-The website prominently displays emergency contact information:
-- Emergency button in header (mobile & desktop)
-- Emergency banner in footer
-- Emergency notice in contact section
-- Direct links to call 112
 
 ## 📊 Performance Features
 

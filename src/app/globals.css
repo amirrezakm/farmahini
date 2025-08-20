@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Persian font family */
+.font-persian {
+  font-family: var(--font-vazirmatn), system-ui, -apple-system, sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -211,5 +216,157 @@
   }
   70% {
     transform: scale(1);
+  }
+}
+
+/* Heart-inspired animations for hero section */
+.heartbeat-line {
+  animation: heartbeatLine 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.heartbeat-line-continuous {
+  animation: heartbeatLineContinuous 18s ease-in-out infinite;
+}
+
+.floating-heart {
+  animation: floatingHeart 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.heart-pulse {
+  animation: heartPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.heart-pulse-slow {
+  animation: heartPulseSlow 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.heart-glow {
+  animation: heartGlow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+}
+
+.heart-beat-rhythm {
+  animation: heartBeatRhythm 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes heartbeatLine {
+  0% {
+    stroke-dashoffset: 1200;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: -1200;
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeatLineContinuous {
+  0% {
+    stroke-dashoffset: 2000;
+    opacity: 0;
+  }
+  2% {
+    opacity: 0.8;
+  }
+  98% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: -2000;
+    opacity: 0;
+  }
+}
+
+@keyframes floatingHeart {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.2;
+  }
+  20% {
+    transform: translateY(-40px) rotate(3deg) scale(1.1);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translateY(-80px) rotate(-2deg) scale(1.05);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateY(-120px) rotate(1deg) scale(1.1);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translateY(-160px) rotate(-1deg) scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.4));
+  }
+  12% {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.7));
+  }
+  24% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.4));
+  }
+  36% {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.7));
+  }
+  48% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.4));
+  }
+}
+
+@keyframes heartPulseSlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.5));
+  }
+}
+
+@keyframes heartGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(239, 68, 68, 0.6), 0 0 80px rgba(239, 68, 68, 0.3);
+  }
+}
+
+@keyframes heartBeatRhythm {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  10% {
+    transform: scale(1.15) rotate(1deg);
+    opacity: 0.9;
+  }
+  20% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  30% {
+    transform: scale(1.15) rotate(-1deg);
+    opacity: 0.9;
+  }
+  40% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
   }
 }

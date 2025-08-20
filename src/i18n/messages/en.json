@@ -1,0 +1,208 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "team": "Team",
+    "about": "About",
+    "contact": "Contact",
+    "appointments": "Appointments"
+  },
+  "hero": {
+    "title": "Kardiologische Schwerpunktpraxis",
+    "subtitle": "Faraz Farmahini",
+    "description": "My goal is your individual physical and mental self-determination at any age and, in short, your long-term health. This applies to people with cardiovascular diseases as well as to all people who want to actively stay healthy.",
+    "cta_doctolib": "Book appointment with Doctolib",
+
+    "trust_indicators": {
+      "modern_diagnostics": "Modern Diagnostics",
+      "modern_diagnostics_desc": "State-of-the-art equipment for precise cardiac examinations",
+      "experienced_care": "Experienced Care",
+      "experienced_care_desc": "Years of expertise in cardiology",
+      "personal_care": "Personal Care",
+      "personal_care_desc": "Individual treatment for every patient"
+    },
+    "scroll_down": "Scroll down"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive cardiac diagnostics and therapy",
+    "ekg": {
+      "title": "ECG",
+      "description": "Electrocardiogram for measuring heart activity"
+    },
+    "echo": {
+      "title": "Echocardiography",
+      "description": "Cardiac ultrasound for detailed examination of heart structure"
+    },
+    "holter": {
+      "title": "Holter ECG",
+      "description": "24-hour ECG recording for rhythm analysis"
+    },
+    "abpm": {
+      "title": "24-Hour Blood Pressure Monitoring",
+      "description": "24-hour blood pressure monitoring"
+    },
+    "ergometry": {
+      "title": "Exercise ECG",
+      "description": "Cardiac examination under physical stress"
+    },
+    "lufo": {
+      "title": "Pulmonary Function Test",
+      "description": "Measurement of respiratory function and lung capacity"
+    },
+    "abi": {
+      "title": "Ankle-Brachial Index",
+      "description": "Vascular diagnostics for detecting circulation disorders"
+    },
+    "stress_echo": {
+      "title": "Stress Echocardiography",
+      "description": "Cardiac ultrasound under pharmacological stress"
+    },
+    "device_control": {
+      "title": "Pacemaker and ICD Control",
+      "description": "Programming and follow-up care for pacemakers"
+    },
+    "cardio_mrt": {
+      "title": "Cardiac MRI",
+      "description": "Cardiac magnetic resonance imaging"
+    },
+    "category": "Cardiology",
+    "learn_more": "Learn more",
+    "equipment": {
+      "title": "State-of-the-Art Equipment for Your Health",
+      "description": "Our practice features the latest medical technology and follows current guidelines from the German Society of Cardiology. All examinations are performed by experienced professionals.",
+      "quality": "Certified Quality",
+      "patient_focused": "Patient-Oriented",
+      "modern_tech": "Modern Technology"
+    },
+    "click_to_learn_more": "Click to learn more",
+    "back_to_home": "Back to Home",
+    "page_description": "Detailed information about all our cardiological services and examination methods.",
+    "features_title": "Key Features",
+    "cta_title": "Need an Examination?",
+    "cta_description": "Schedule an appointment for professional cardiological examination.",
+    "cta_button": "Book Appointment"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Experienced professionals for your heart health",
+    "dr_farmahini": {
+      "name": "Dr. Faraz Farmahini",
+      "role": "Specialist in Cardiology",
+      "description": "Practice owner with extensive experience in interventional cardiology"
+    },
+    "yeliz_guenes": {
+      "name": "Yeliz Günes",
+      "role": "Medical Assistant",
+      "description": "Coordination and patient care"
+    },
+    "aaliyah_eichberger": {
+      "name": "Aaliyah Eichberger",
+      "role": "Medical Assistant",
+      "description": "Diagnostics and patient service"
+    }
+  },
+  "contact": {
+    "title": "Contact & Appointments",
+    "subtitle": "Schedule an appointment or contact us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Office Hours",
+    "emergency": "Emergencies",
+    "form": {
+      "title": "Request Appointment",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "required": "Required field"
+    },
+    "page": {
+      "title": "Contact & Appointments",
+      "subtitle": "We look forward to your visit",
+      "description": "Schedule an appointment at our modern cardiology practice in Speyer. Our experienced team is happy to assist you.",
+      "practice_info": {
+        "title": "Practice Information",
+        "address_full": "Iggelheimer Straße 26\n67346 Speyer\nGermany",
+        "phone_full": "+49 (0) 6232 36691",
+        "email_full": "info@farmahini.de",
+        "website": "www.farmahini.de"
+      },
+      "opening_hours": {
+        "title": "Opening Hours",
+        "monday": "Monday: 08:00 - 17:00",
+        "tuesday": "Tuesday: 08:00 - 17:00",
+        "wednesday": "Wednesday: 08:00 - 13:00",
+        "thursday": "Thursday: 08:00 - 17:00",
+        "friday": "Friday: 08:00 - 13:00",
+        "weekend": "Weekend: Closed",
+        "note": "Appointments by arrangement"
+      },
+      "emergency_info": {
+        "title": "Emergencies",
+        "description": "For acute emergencies, please contact:",
+        "emergency_number": "Emergency: 112",
+        "hospital": "Diakonissen-Stiftungs-Krankenhaus Speyer",
+        "hospital_phone": "+49 (0) 6232 22-0"
+      },
+      "appointment_booking": {
+        "title": "Appointment Booking",
+        "description": "Book your appointment conveniently online via Doctolib or call us directly.",
+        "doctolib_button": "Book Online Appointment",
+        "phone_button": "Book by Phone"
+      },
+      "gallery": {
+        "title": "Our Practice",
+        "description": "Get to know our team and our modern practice facilities"
+      },
+      "back_to_home": "Back to Home"
+    }
+  },
+  "footer": {
+    "practice_name": "Kardiologische Schwerpunktpraxis",
+    "doctor_name": "Faraz Farmahini",
+    "privacy": "Privacy Policy",
+    "imprint": "Imprint"
+  },
+  "personalDescription": {
+    "title": "Personal Description",
+    "subtitle": "My Journey to Cardiology",
+    "content": "I successfully completed my medical studies at the University in Tehran. During my studies, I wrote an outstanding doctoral thesis that further ignited my passion for cardiology. After a brief period of work in Iran, I decided to emigrate to Germany to continue my specialist training in cardiology. I completed my specialist training in renowned clinics under the guidance of highly respected and well-known cardiologists in Germany.",
+    "highlights": {
+      "education": "Medical Studies Tehran",
+      "educationDesc": "Successfully completed with outstanding doctoral thesis",
+      "specialization": "Specialist Training Germany",
+      "specializationDesc": "In renowned clinics under respected cardiologists"
+    },
+    "detailed_journey": {
+      "point1": "I successfully completed my medical studies at the University in Tehran.",
+      "point2": "During my studies, I wrote an outstanding doctoral thesis that further ignited my passion for cardiology.",
+      "point3": "After a brief period of work in Iran, I decided to emigrate to Germany to continue my specialist training in cardiology.",
+      "point4": "I completed my specialist training in renowned clinics under the guidance of highly respected and well-known cardiologists in Germany.",
+      "point5": "Since January 2018, I have been working as a specialist in cardiology and dedicate myself with devotion to my patients.",
+      "point6": "During my specialist training, I additionally acquired comprehensive training in cardiac imaging, including cardiac CT and cardiac MRI.",
+      "point7": "I independently performed a variety of examinations and obtained certification from the German Society of Cardiology for performing cardiac MRI examinations.",
+      "point8": "Subsequently, I completed specialized training in the field of invasive cardiology and PTCA.",
+      "point9": "As a senior physician in the hospital, I was responsible for treating emergencies such as heart attacks and severe calcification of the coronary arteries.",
+      "point10": "To face further challenges, I specialized in the treatment of cardiac arrhythmias.",
+      "point11": "Over the years, I have gained valuable experience and now master the invasive treatment of cardiac arrhythmias (ablations) as well as the implantation of pacemakers and ICD devices."
+    },
+    "signature": {
+      "title": "Founder's Signature",
+      "name": "Dr. Med(IR). Faraz Farmahini"
+    },
+    "cta_button": "Learn more about me",
+    "back_to_home": "Back to Home",
+    "page_title": "About Dr. Faraz Farmahini",
+    "page_description": "Learn more about the career and qualifications of Dr. Faraz Farmahini, Specialist in Cardiology."
+  },
+  "language": {
+    "switch_to_german": "Deutsch",
+    "switch_to_english": "English", 
+    "switch_to_persian": "فارسی",
+    "current_language": "English"
+  }
+}
+

@@ -2,14 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Bars3Icon, XMarkIcon, HeartIcon } from '@heroicons/react/24/outline';
-import { translations } from '@/lib/translations';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
+import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const t = translations;
+  const t = useTranslations();
+  const locale = useLocale();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +23,20 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Helper function to generate correct URLs for default locale
+  const getLocalizedHref = (path: string) => {
+    if (locale === 'de') {
+      // German is default, no prefix needed
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
+
   const navigationItems = [
-    { key: 'home', href: '#home' },
-    { key: 'services', href: '#services' },
-    { key: 'team', href: '#team' },
-    { key: 'contact', href: '#contact' },
+    { key: 'home', href: getLocalizedHref('/') },
+    { key: 'services', href: getLocalizedHref('/services') },
+    { key: 'about', href: getLocalizedHref('/about') },
+    { key: 'contact', href: getLocalizedHref('/contact') },
   ];
 
   return (
@@ -41,14 +53,16 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="#home" className="flex items-center space-x-3">
+          <Link href={getLocalizedHref('/')} className="flex items-center">
             <div className="relative">
-              <HeartIcon className="w-8 h-8 text-blue-600 pulse-heart" />
-              <div className="absolute inset-0 bg-blue-400 rounded-full blur-lg opacity-30"></div>
-            </div>
-            <div className="text-lg font-bold text-gray-900">
-              <span className="hidden sm:inline">Dr. Farmahini</span>
-              <span className="sm:hidden">Praxis</span>
+              <Image
+                src="/logo.png"
+                alt="Dr. Farmahini Kardiologie Logo"
+                width={120}
+                height={120}
+                className="w-30 h-30 object-contain"
+                priority
+              />
             </div>
           </Link>
 
@@ -60,7 +74,7 @@ export function Header() {
                 href={item.href}
                 className="font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 relative group"
               >
-                {t.navigation[item.key as keyof typeof t.navigation]}
+                {t(`navigation.${item.key}`)}
                 <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </Link>
             ))}
@@ -68,14 +82,9 @@ export function Header() {
 
           {/* Right side */}
           <div className="flex items-center space-x-4">
-            {/* Emergency button */}
-            <Link
-              href="tel:112"
-              className="hidden sm:flex items-center space-x-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105"
-            >
-              <span className="text-sm">🚨</span>
-              <span className="text-sm">{t.hero.emergency}</span>
-            </Link>
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
 
             {/* Mobile menu button */}
             <button
@@ -107,18 +116,10 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
-                  {t.navigation[item.key as keyof typeof t.navigation]}
+                  {t(`navigation.${item.key}`)}
                 </Link>
               ))}
-              
-              {/* Mobile emergency button */}
-              <Link
-                href="tel:112"
-                className="flex items-center justify-center space-x-2 bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4"
-              >
-                <span>🚨</span>
-                <span>{t.hero.emergency}</span>
-              </Link>
+
             </div>
           </motion.nav>
         )}
