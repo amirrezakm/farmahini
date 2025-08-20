@@ -28,7 +28,33 @@ error() {
 
 # Check if running as root
 if [[ $EUID -eq 0 ]]; then
-   error "This script should not be run as root. Please run as a regular user with sudo privileges."
+   warn "Running as root. Creating a regular user for deployment..."
+   
+   # Create deployment user if it doesn't exist
+   if ! id "deploy" &>/dev/null; then
+       log "Creating deployment user 'deploy'..."
+       useradd -m -s /bin/bash deploy
+       usermod -aG sudo deploy
+       
+       # Set up SSH key copying if available
+       if [[ -d "/root/.ssh" ]]; then
+           mkdir -p /home/deploy/.ssh
+           cp /root/.ssh/authorized_keys /home/deploy/.ssh/ 2>/dev/null || true
+           chown -R deploy:deploy /home/deploy/.ssh
+           chmod 700 /home/deploy/.ssh
+           chmod 600 /home/deploy/.ssh/authorized_keys 2>/dev/null || true
+       fi
+       
+       log "User 'deploy' created successfully"
+   fi
+   
+   # Copy script to deploy user's home and run it
+   cp "$0" /home/deploy/
+   chown deploy:deploy /home/deploy/$(basename "$0")
+   chmod +x /home/deploy/$(basename "$0")
+   
+   log "Switching to user 'deploy' to continue deployment..."
+   exec sudo -u deploy /home/deploy/$(basename "$0") "$@"
 fi
 
 # Check if sudo is available
