@@ -315,7 +315,7 @@ log "🌐 Configuring Nginx..."
 sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null << EOF
 server {
     listen 80;
-    server_name $DOMAIN www.$DOMAIN;
+    server_name $DOMAIN;
     
     # Security headers
     add_header X-Frame-Options "SAMEORIGIN" always;
@@ -399,11 +399,11 @@ fi
 # Obtain SSL certificate
 log "🔒 Obtaining SSL certificate from Let's Encrypt..."
 set +e  # Don't exit on SSL error
-if sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL --redirect; then
+if sudo certbot --nginx -d $DOMAIN --non-interactive --agree-tos --email $EMAIL --redirect; then
     log "✅ SSL certificate obtained successfully"
 else
     warn "⚠️ SSL certificate setup failed. This is normal if DNS isn't propagated yet."
-    warn "You can run it manually later: sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN"
+    warn "You can run it manually later: sudo certbot --nginx -d $DOMAIN"
 fi
 set -e  # Re-enable exit on error
 
