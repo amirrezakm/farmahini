@@ -168,7 +168,7 @@ fi
 
 # Install dependencies
 log "📦 Installing project dependencies..."
-npm ci --production
+npm ci
 
 # Build the project
 log "🏗️ Building Next.js application..."
@@ -324,7 +324,7 @@ fi
 
 # Install dependencies
 log "📦 Installing dependencies..."
-npm ci --production
+npm ci
 
 # Build application
 log "🏗️ Building application..."
